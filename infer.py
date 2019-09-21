@@ -27,8 +27,9 @@ def infer_images():
 	'''
 	one = similarity_model.predict(x_test[0].reshape((-1, 28, 28, 1)))
 	two = similarity_model.predict(x_test[1].reshape((-1, 28, 28, 1)))
-	print("Similarity between the above : {} ".format(round(cosine(one, two), 2)))
-	return round(cosine(one, two), 2)
+	sim = cosine(one, two)
+	print("Similarity between the above : {} ".format(round(sim.item(0),2)))
+	return round(sim.item(0), 2)
 
 if __name__ == "__main__":
 	infer_images()

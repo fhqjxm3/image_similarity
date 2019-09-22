@@ -105,7 +105,7 @@ def similarity_model():
 	extracted = BatchNormalization()(extracted)
 	extracted = Activation('relu')(extracted)
 	extracted = Dense(1, activation = 'sigmoid')(extracted)
-	siamese_model = Model(inputs = [img_a_in, img_b_in], outputs = [extracted], name = 'Similarity_Model')
+	siamese_model = Model(inputs = [img_a_in, img_b_in], outputs = [extracted])
 	siamese_model.summary()
 	# Siamese_model(predicted_a)
 	siamese_model.compile(optimizer='adam', loss = 'binary_crossentropy', metrics = ['mae'])
